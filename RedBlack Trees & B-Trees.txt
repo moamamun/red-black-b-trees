@@ -1,0 +1,100 @@
+Project 2	Due: TBD
+There are 2 or 3 choices of Project, Red/Black Trees & B-Trees and Dynamic Programming/Greedy Algorithms. See below. First I’ll describe universal considerations that apply regardless of your choice.
+
+This Project comes in 2 related parts, a paper and code. You will read the text and explain the ideas in your paper at a high to medium level. By this I mean your paper should explain the basic ideas of the method as well as, in detail, the basic ideas of the implementation. However your level of detail need not descend to being exact with the indices, for example. Not clear? Well, say for mergeSort(), the explanation would be, “Split the array in two, sort each half using mergeSort() recursively, then merge the two halves.”  Note that I didn’t get into sizes and indices. What you will explain in your paper will, of course, be more complex than mergeSort(). 
+Your paper should refer to your code explaining what each major function does and how the functions fit together to do the job. If you code is properly commented (as it should be) this may involve little more than mosing over the comments, re-formatting them and embellishing them some for coherence.  The basic driving ideas should be explained in a convincing, coherent fashion in as much detail as you feel necessary. 
+Last but certainly not least, your paper must analyze the running times of your algorithms, with proof.
+All of the above material for the paper appears in the text. Your job is to read it, comprehend it and explain it different words. If you merely copy the words of the text without digesting them and reworking it into a different form then you are brainlessly plagiarizing the text. Not a good result, and not a good grade. Your job is to take/plagiarize the ideas of the text, not the words.
+
+Choice of Project: You may choose to work either on Red/Black Trees (Chapter 13), Red/Black Trees & B-Trees (Chapters 13 and 18) or on Dynamic Programming/Greedy Algorithms (Chapters 15-16.3). R/BT alone is the least ambitious Project; R/BT&BT or DP/GA the more ambitious. Therefore your maximum project grade for the easiest project, R/BT, is B+. For R/BT&BT or DP/GA it is A+. This trichotomy is designed to help people who are struggling to pass. Accordingly, an outline of the R/BT code appears below.
+
+Associated Program Code: 
+Note: The project code must be in C or C++. Code not written in C/C++ will not be read. 
+Dynamic Programming/Greedy Algorithms:
+Implement the Longest Common Subsequence algorithm (Section 15.4) and the Huffman Code algorithm (Section 16.3)
+
+LCS algorithm:
+Input for the LCS algorithm: 
+source: http://www.cbs.dtu.dk/services/NetGene2/fasta.php
+
+Two entries (both from GenBank) are shown in this example.
+       A = adenine	C = cytosine	G = guanine	T = thymine           
+
+
+Sequence 1
+>HSBGPG Human gene for bone gla protein (BGP)
+GGCAGATTCCCCCTAGACCCGCCCGCACCATGGTCAGGCATGCCCCTCCTCATCGCTGGGCACAGCCCAGAGGGTATAAACAGTGCTGGAGGCTGGCGGGGCAGGCCAGCTGAGTCCTGAGCAGCAGCCCAGCGCAGCCACCGAGACACCATGAGAGCCCTCACACTCCTCGCCCTATTGGCCCTGGCCGCACTTTGCATCGCTGGCCAGGCAGGTGAGTGCCCCCACCTCCCCTCAGGCCGCATTGCAGTGGGGGCTGAGAGGAGGAAGCACCATGGCCCACCTCTTCTCACCCCTTTGGCTGGCAGTCCCTTTGCAGTCTAACCACCTTGTTGCAGGCTCAATCCATTTGCCCCAGCTCTGCCCTTGCAGAGGGAGAGGAGGGAAGAGCAAGCTGCCCGAGACGCAGGGGAAGGAGGATGAGGGCCCTGGGGATGAGCTGGGGTGAACCAGGCTCCCTTTCCTTTGCAGGTGCGAAGCCCAGCGGTGCAGAGTCCAGCAAAGGTGCAGGTATGAGGATGGACCTGATGGGTTCCTGGACCCTCCCCTCTCACCCTGGTCCCTCAGTCTCATTCCCCCACTCCTGCCACCTCCTGTCTGGCCATCAGGAAGGCCAGCCTGCTCCCCACCTGATCCTCCCAAACCCAGAGCCACCTGATGCCTGCCCCTCTGCTCCACAGCCTTTGTGTCCAAGCAGGAGGGCAGCGAGGTAGTGAAGAGACCCAGGCGCTACCTGTATCAATGGCTGGGGTGAGAGAAAAGGCAGAGCTGGGCCAAGGCCCTGCCTCTCCGGGATGGTCTGTGGGGGAGCTGCAGCAGGGAGTGGCCTCTCTGGGTTGTGGTGGGGGTACAGGCAGCCTGCCCTGGTGGGCACCCTGGAGCCCCATGTGTAGGGAGAGGAGGGATGGGCATTTTGCACGGGGGCTGATGCCACCACGTCGGGTGTCTCAGAGCCCCAGTCCCCTACCCGGATCCCCTGGAGCCCAGGAGGGAGGTGTGTGAGCTCAATCCGGACTGTGACGAGTTGGCTGACCACATCGGCTTTCAGGAGGCCTATCGGCGCTTCTACGGCCCGGTCTAGGGTGTCGCTCTGCTGGCCTGGCCGGCAACCCCAGTTCTGCTCCTCTCCAGGCACCCTTCTTTCCTCTTCCCCTTGCCCTTGCCCTGACCTCCCAGCCCTATGGATGTGGGGTCCCCATCATCCCAGCTGCTCCCAAATAAACTCCAGAAG
+
+
+Sequence 2
+>HSGLTH1 Human theta 1-globin gene
+CCACTGCACTCACCGCACCCGGCCAATTTTTGTGTTTTTAGTAGAGACTAAATACCATATAGTGAACACCTAAGACGGGGGGCCTTGGATCCAGGGCGATTCAGAGGGCCCCGGTCGGAGCTGTCGGAGATTGAGCGCGCGCGGTCCCGGGATCTCCGACGAGGCCCTGGACCCCCGGGCGGCGAAGCTGCGGCGCGGCGCCCCCTGGAGGCCGCGGGACCCCTGGCCGGTCCGCGCAGGCGCAGCGGGGTCGCAGGGCGCGGCGGGTTCCAGCGCGGGGATGGCGCTGTCCGCGGAGGACCGGGCGCTGGTGCGCGCCCTGTGGAAGAAGCTGGGCAGCAACGTCGGCGTCTACACGACAGAGGCCCTGGAAAGGTGCGGCAGGCTGGGCGCCCCCGCCCCCAGGGGCCCTCCCTCCCCAAGCCCCCCGGACGCGCCTCACCCACGTTCCTCTCGCAGGACCTTCCTGGCTTTCCCCGCCACGAAGACCTACTTCTCCCACCTGGACCTGAGCCCCGGCTCCTCACAAGTCAGAGCCCACGGCCAGAAGGTGGCGGACGCGCTGAGCCTCGCCGTGGAGCGCCTGGACGACCTACCCCACGCGCTGTCCGCGCTGAGCCACCTGCACGCGTGCCAGCTGCGAGTGGACCCGGCCAGCTTCCAGGTGAGCGGCTGCCGTGCTGGGCCCCTGTCCCCGGGAGGGCCCCGGCGGGGTGGGTGCGGGGGGCGTGCGGGGCGGGTGCAGGCGAGTGAGCCTTGAGCGCTCGCCGCAGCTCCTGGGCCACTGCCTGCTGGTAACCCTCGCCCGGCACTACCCCGGAGACTTCAGCCCCGCGCTGCAGGCGTCGCTGGACAAGTTCCTGAGCCACGTTATCTCGGCGCTGGTTTCCGAGTACCGCTGAACTGTGGGTGGGTGGCCGCGGGATCCCCAGGCGACCTTCCCCGTGTTTGAGTAAAGCCTCTCCCAGGAGCAGCCTTCTTGCCGTGCTCTCTCGAGGTCAGGACGCGAGAGGAAGGCGC
+
+
+If you wish to double check your work, 
+here are 2 more sequences (from https://www.genomatix.de/online_help/help/sequence_formats.html), but for the actual input for your program use the above.
+
+(also from GenBank)
+Sequence 3
+GACTTTTTTTTTTTTTCCTTTGGGAAAGGTAGGGAGGTGTTCGTACGGGAGCAGCCTCGGGGACCCCTGCACTGGGTCAGGGCTTATGAAGCTAGAAGCGTCCCTCTGTTCCCTTTGTGAGTTGGTGGGTTGTTGGTACATTTGGTTGGAAGCTGTGTTGCTGGTTAGGGAGACTCGGTTTTGCTCCTTGGGTTCGAGGAAAGCTGGAGAATAGAAGCCATTGTTTGCCGTCTGTCGGCTTTGTCGACCACGCTCACCCCCTCCTGTTCGTACTTTTTAAAGCAGTGAGGCGAGGTAGACAGGGTGTGTCACAGTACAGTTAAAGGGGTGAAGATCTAAACGCCAAAAGAGAAGTTAATCACAATAAGTGAGGTTTGGGATAAAAAGTTGGGCTTGCCCCTTTCAAAGTCCCAGAAAGCTGGGAGGTAGATGGAGAGGGGGCCATTGGGAAGTTTTTTTGGTGTAGGGAGAGGAGTAGAAGATAAAGGGTAAGCAGAGTGTTGGGTTCTGGGGGTCTTGTGAAGTTCCTTAAGGAAGGAGGGAGTGTGGCCCTGCAGCCCTCCCAAACTGCTCCAGCCTATGCTCTCCGGCACCAGGAAGTTCCAAGGTTCCCTTCCCCTGGTCTCCAAACTTCAGGTATTCCTCTCCCCTCACACCCCTTCAACCTCAGCTCTTGGCCTCTACTCCTTACTCCACTGTTCCTCCTGTTTCCCCCTTCCCCTTTTCCTGGTTCTTTATATTTTTGCAAAGTGGGATCCGAACTTGCTAGATTTTCCAATTCTCCCAAGCCAGACCAGAGCAGCCTCTTTTAAAGGATGGAGACTTCTGTGGCAGATGCCGCTGAAAATGTGGGTGTAATGCTGGGACTTAGAGTTTGATGACAGTTTGACTGAGCCCTAGATGCATGTGTTTTTCCTGAGAGTGAGGCTCAGAGAGCCCATGGACGTATGCTGTTGAACCACAGCTTGATATACCTTTTTCTCCTTCTGTTTTGTCTTAGGGGGAAGACTTTAACTAGGGGCGCGCAGATGTGTGAGGCCTTTTATTGTGAGAGTGGACAGACATCCGAGATTTCAGGCAAGTTCTGTGGTGGCTGCTTTGGGCT
+
+Sequence 4
+ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAGACCTGAA1
+
+
+Huffman Code algorithm:
+You may provide your own reasonable sized input text (20 to 50 words is fine). Your code should 1) print the uncompressed input, 2)  compress the input, 3) traverse the Huffman tree to “print” the compressed file and 4) retrieve the input from the tree.
+
+Red/Black Tree Programming:
+Implement an RBT.
+Your implementation must support RBTinsert(), RBTSearch(), RBTDelete(), RBTDeleteAll() and RBTInOrderPrintTree(), each with the obvious meaning. For brevity, I’ll call these RBTI(),  RBTS(), RBTD(), RBTDA() and RBTP(). These functions must work according to the algorithms described in the text which you will explain your paper. In particular the Red/Black properties must be maintained. 
+(RBTDA() deletes all copies of the given key from the tree. See below.)
+
+In main() declare a local array of int key values:
+int keys[] = {4, 2, 3, 3, 3, 22, 9, 21, 11, 45, 15, 21, 15, 18, 1, 0, 15, 12, 15};
+Insert these keys into your RBT using RBTI(); then print: RBTP().
+Next run 2 loops:
+const int period = 8;
+for (int i = 0; i<120;  i++) {
+	RBTI(i);
+	if (i && i % period == 0)
+		RBTP();
+}
+
+for (int i = 0, cnt = 0; i<120;  i++) {
+	if ( i%3==0 && RBTS(i) ) {
+		cnt += RBTDA(i);
+		if (cnt >= period ) {
+			RBTP();
+			cnt = 0;
+		}
+	}
+}
+RBTP();
+
+Function specs: T points to the tree, key is the key value of current interest
+node *RBTI(node *T, int key)
+returns a pointer to the node with key value key
+
+node *RBTD(node *T, int key)
+returns a pointer to the deleted node 
+returns null if not found
+
+int RBTDA(node *T, int key)
+deletes all nodes with the given key
+returns # of nodes deleted
+
+node *RBTS(node *T, int key) 
+returns a pointer to a node with key value key
+returns null if not found
+
+node *RBTP(node *T)
+prints the tree *T in an in-order basis. Each node should be printed as:
+key value
+parent node (How will you identify that? Good question.)
+color (Red/Black)
+left, right children
+any other info you chose to maintain
+
+B-Tree Programming:
+Precisely analogous to the above for Red/Black Trees. For simplicity, implement as a 2,3 tree.
